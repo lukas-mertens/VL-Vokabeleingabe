@@ -4,8 +4,8 @@ Public Class Form1
     Dim Language2 As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cbLanguage1.SelectedIndex = 0
-        cbLanguage2.SelectedIndex = 1
+        cbLanguage1.SelectedIndex = 25
+        cbLanguage2.SelectedIndex = 23
     End Sub
 
     Private Sub cbLanguage1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLanguage1.SelectedIndexChanged
