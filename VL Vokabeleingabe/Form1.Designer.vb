@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.btSaveToCSV = New System.Windows.Forms.Button()
         Me.tbLanguage1 = New System.Windows.Forms.TextBox()
         Me.lbLanguage1 = New System.Windows.Forms.Label()
@@ -39,8 +40,10 @@ Partial Class Form1
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmsLvVocabulary = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AusgewählteVokabelnLöschenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btLoadFromCSV = New System.Windows.Forms.Button()
+        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.cmsLvVocabulary.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -52,7 +55,7 @@ Partial Class Form1
         '
         Me.btSaveToCSV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btSaveToCSV.Location = New System.Drawing.Point(12, 407)
+        Me.btSaveToCSV.Location = New System.Drawing.Point(12, 437)
         Me.btSaveToCSV.Name = "btSaveToCSV"
         Me.btSaveToCSV.Size = New System.Drawing.Size(471, 23)
         Me.btSaveToCSV.TabIndex = 0
@@ -152,9 +155,9 @@ Partial Class Form1
         Me.lvVocabulary.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
         Me.lvVocabulary.ContextMenuStrip = Me.cmsLvVocabulary
         Me.lvVocabulary.FullRowSelect = True
-        Me.lvVocabulary.Location = New System.Drawing.Point(15, 206)
+        Me.lvVocabulary.Location = New System.Drawing.Point(12, 206)
         Me.lvVocabulary.Name = "lvVocabulary"
-        Me.lvVocabulary.Size = New System.Drawing.Size(468, 195)
+        Me.lvVocabulary.Size = New System.Drawing.Size(471, 196)
         Me.lvVocabulary.TabIndex = 9
         Me.lvVocabulary.UseCompatibleStateImageBehavior = False
         Me.lvVocabulary.View = System.Windows.Forms.View.Details
@@ -189,10 +192,10 @@ Partial Class Form1
         Me.AusgewählteVokabelnLöschenToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.AusgewählteVokabelnLöschenToolStripMenuItem.Text = "Ausgewählte Vokabeln löschen"
         '
-        'SaveFileDialog1
+        'SaveFileDialog
         '
-        Me.SaveFileDialog1.Filter = "CSV-Datei (.csv) |*.csv"
-        Me.SaveFileDialog1.Title = "Vokabeln exportieren"
+        Me.SaveFileDialog.Filter = "CSV-Datei (.csv) |*.csv"
+        Me.SaveFileDialog.Title = "Vokabeln exportieren"
         '
         'SplitContainer1
         '
@@ -212,11 +215,27 @@ Partial Class Form1
         Me.SplitContainer1.SplitterDistance = 247
         Me.SplitContainer1.TabIndex = 10
         '
+        'btLoadFromCSV
+        '
+        Me.btLoadFromCSV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btLoadFromCSV.Location = New System.Drawing.Point(12, 408)
+        Me.btLoadFromCSV.Name = "btLoadFromCSV"
+        Me.btLoadFromCSV.Size = New System.Drawing.Size(471, 23)
+        Me.btLoadFromCSV.TabIndex = 11
+        Me.btLoadFromCSV.Text = "Vokabeln aus CSV laden"
+        Me.btLoadFromCSV.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog
+        '
+        Me.OpenFileDialog.FileName = "OpenFileDialog1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(495, 442)
+        Me.ClientSize = New System.Drawing.Size(495, 472)
+        Me.Controls.Add(Me.btLoadFromCSV)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.lvVocabulary)
         Me.Controls.Add(Me.btEnter)
@@ -226,6 +245,7 @@ Partial Class Form1
         Me.Controls.Add(Me.lbLanguage1)
         Me.Controls.Add(Me.tbLanguage1)
         Me.Controls.Add(Me.btSaveToCSV)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = " VL Vokabeleingabe"
         Me.cmsLvVocabulary.ResumeLayout(False)
@@ -254,6 +274,8 @@ Partial Class Form1
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents cmsLvVocabulary As ContextMenuStrip
     Friend WithEvents AusgewählteVokabelnLöschenToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents btLoadFromCSV As Button
+    Friend WithEvents OpenFileDialog As OpenFileDialog
 End Class

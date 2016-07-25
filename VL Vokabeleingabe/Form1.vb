@@ -71,13 +71,35 @@ Public Class Form1
     End Sub
 
     Private Sub SaveToCSV()
-        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-            Dim FilePath As String = SaveFileDialog1.FileName
-            Dim Lines(lvVocabulary.Items.Count) As String
+        If SaveFileDialog.ShowDialog() = DialogResult.OK Then
+            Dim FilePath As String = SaveFileDialog.FileName
+            Dim Lines(lvVocabulary.Items.Count - 1) As String
             For i = 0 To lvVocabulary.Items.Count - 1
                 Lines(i) = String.Format("{0}{1}{2};{3}{4}{5};{6}{7}{8};{9}{10}{11}", Chr(34), lvVocabulary.Items.Item(i).SubItems.Item(1).Text, Chr(34), Chr(34), lvVocabulary.Items.Item(i).Text, Chr(34), Chr(34), lvVocabulary.Items.Item(i).SubItems.Item(3).Text, Chr(34), Chr(34), lvVocabulary.Items.Item(i).SubItems.Item(2).Text, Chr(34))
             Next
             File.WriteAllLines(FilePath, Lines)
+        End If
+    End Sub
+
+    Private Sub btLoadFromCSV_Click(sender As Object, e As EventArgs) Handles btLoadFromCSV.Click
+        If OpenFileDialog.ShowDialog() = DialogResult.OK Then
+            If MsgBox("Es werden alle aktuellen Eingaben gelöscht. Datei laden?", MsgBoxStyle.YesNo, "Sicher?") = MsgBoxResult.Yes Then
+                Dim FilePath As String = OpenFileDialog.FileName
+                Dim Lines As IEnumerable(Of String) = File.ReadLines(FilePath)
+
+                For i = 0 To Lines.Count - 1
+                    Dim Items As String() = Lines(i).Split(";")
+                    With lvVocabulary.Items.Add(Items(1).Substring(1, Items(1).Length - 2))
+                        .SubItems.Add(Items(0).Substring(1, Items(0).Length - 2))
+                        .SubItems.Add(Items(3).Substring(1, Items(3).Length - 2))
+                        .SubItems.Add(Items(2).Substring(1, Items(2).Length - 2))
+                    End With
+                Next
+
+                tbLanguage1.Text = ""
+                tbLanguage2.Text = ""
+                Me.tbLanguage1.Focus()
+            End If
         End If
     End Sub
 End Class
