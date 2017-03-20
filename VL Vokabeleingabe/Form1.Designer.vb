@@ -44,6 +44,8 @@ Partial Class Form1
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btLoadFromCSV = New System.Windows.Forms.Button()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.btHint1 = New System.Windows.Forms.Button()
+        Me.btHint2 = New System.Windows.Forms.Button()
         Me.cmsLvVocabulary.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -59,7 +61,7 @@ Partial Class Form1
         Me.btSaveToCSV.Name = "btSaveToCSV"
         Me.btSaveToCSV.Size = New System.Drawing.Size(471, 23)
         Me.btSaveToCSV.TabIndex = 0
-        Me.btSaveToCSV.Text = "Vokabeln als CSV speichern"
+        Me.btSaveToCSV.Text = "Vokabeln als JSON speichern"
         Me.btSaveToCSV.UseVisualStyleBackColor = True
         '
         'tbLanguage1
@@ -69,7 +71,7 @@ Partial Class Form1
         Me.tbLanguage1.Location = New System.Drawing.Point(12, 41)
         Me.tbLanguage1.Multiline = True
         Me.tbLanguage1.Name = "tbLanguage1"
-        Me.tbLanguage1.Size = New System.Drawing.Size(471, 20)
+        Me.tbLanguage1.Size = New System.Drawing.Size(447, 20)
         Me.tbLanguage1.TabIndex = 1
         Me.tbLanguage1.Tag = ""
         '
@@ -89,7 +91,7 @@ Partial Class Form1
         Me.tbLanguage2.Location = New System.Drawing.Point(12, 88)
         Me.tbLanguage2.Multiline = True
         Me.tbLanguage2.Name = "tbLanguage2"
-        Me.tbLanguage2.Size = New System.Drawing.Size(471, 20)
+        Me.tbLanguage2.Size = New System.Drawing.Size(447, 20)
         Me.tbLanguage2.TabIndex = 3
         Me.tbLanguage2.Tag = ""
         '
@@ -223,18 +225,40 @@ Partial Class Form1
         Me.btLoadFromCSV.Name = "btLoadFromCSV"
         Me.btLoadFromCSV.Size = New System.Drawing.Size(471, 23)
         Me.btLoadFromCSV.TabIndex = 11
-        Me.btLoadFromCSV.Text = "Vokabeln aus CSV laden"
+        Me.btLoadFromCSV.Text = "Vokabeln aus JSON laden"
         Me.btLoadFromCSV.UseVisualStyleBackColor = True
         '
         'OpenFileDialog
         '
         Me.OpenFileDialog.FileName = "OpenFileDialog1"
         '
+        'btHint1
+        '
+        Me.btHint1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btHint1.Location = New System.Drawing.Point(465, 39)
+        Me.btHint1.Name = "btHint1"
+        Me.btHint1.Size = New System.Drawing.Size(18, 23)
+        Me.btHint1.TabIndex = 12
+        Me.btHint1.Text = "💡"
+        Me.btHint1.UseVisualStyleBackColor = True
+        '
+        'btHint2
+        '
+        Me.btHint2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btHint2.Location = New System.Drawing.Point(465, 86)
+        Me.btHint2.Name = "btHint2"
+        Me.btHint2.Size = New System.Drawing.Size(18, 23)
+        Me.btHint2.TabIndex = 13
+        Me.btHint2.Text = "💡"
+        Me.btHint2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(495, 472)
+        Me.Controls.Add(Me.btHint2)
+        Me.Controls.Add(Me.btHint1)
         Me.Controls.Add(Me.btLoadFromCSV)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.lvVocabulary)
@@ -278,4 +302,6 @@ Partial Class Form1
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents btLoadFromCSV As Button
     Friend WithEvents OpenFileDialog As OpenFileDialog
+    Friend WithEvents btHint1 As Button
+    Friend WithEvents btHint2 As Button
 End Class
